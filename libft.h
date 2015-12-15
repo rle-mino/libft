@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 15:06:37 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/12/11 20:02:25 by rle-mino         ###   ########.fr       */
+/*   Updated: 2015/12/15 11:05:22 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ int					ft_lstlen(t_list *beg);
 int					ft_premiere(int nbr);
 char				**ft_memalloc_td(int d1, int d2);
 void				ft_free_td(char **str, int d2);
+int					ft_isspace(char c);
 
 #endif

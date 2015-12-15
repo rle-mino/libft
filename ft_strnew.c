@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 18:26:28 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/11/27 19:05:33 by rle-mino         ###   ########.fr       */
+/*   Updated: 2015/12/15 10:34:30 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char		*ft_strnew(size_t size)
 {
-	char *s;
+	char	*s;
 
-	s = (char *)ft_memalloc(size + 1);
+	s = (char *)ft_memalloc(sizeof(char) * (size + 1));
 	if (s == NULL)
 		return (NULL);
 	return (s);

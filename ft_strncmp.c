@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 10:23:55 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/11/30 18:16:50 by rle-mino         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:08:01 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 		n--;
 	}
-	return (ft_abs(s1[i]) - ft_abs(s2[i]));
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

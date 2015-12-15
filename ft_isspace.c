@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 13:27:12 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/12/14 18:26:51 by rle-mino         ###   ########.fr       */
+/*   Created: 2015/12/15 11:01:53 by rle-mino          #+#    #+#             */
+/*   Updated: 2015/12/15 11:03:50 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int			ft_isspace(char c)
 {
-	char	*s2;
-	int		i;
-
-	if (s == NULL || f == NULL)
-		return (NULL);
-	i = 0;
-	s2 = ft_strnew(ft_strlen(s));
-	if (!(s2))
-		return NULL;
-	while (s[i])
-	{
-		s2[i] = f(i, s[i]);
-		i++;
-	}
-	return (s2);
+	if (c == ' ' || c == '\t' || c == '\n'
+			|| c == '\f' || c == '\r' || c == '\v')
+		return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 11:56:31 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/12/07 16:46:58 by rle-mino         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:24:54 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char			*ft_strmap(char const *s, char (*f)(char))
 	i = 0;
 	if (s == NULL || f == NULL)
 		return (NULL);
-	s2 = (char*)malloc(sizeof(ft_strlen(s) + 1));
+	s2 = ft_strnew(ft_strlen(s));
 	if (s2 == NULL)
 		return (NULL);
 	while (s[i])

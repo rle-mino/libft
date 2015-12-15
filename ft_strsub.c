@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 13:47:41 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/12/07 16:52:28 by rle-mino         ###   ########.fr       */
+/*   Updated: 2015/12/15 10:48:05 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,19 @@
 char		*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char	*s2;
-	int		i;
-	size_t	j;
+	size_t	i;
 
-	j = start;
-	len += start;
 	i = 0;
 	if (s == NULL)
 		return (NULL);
-	s2 = (char *)ft_memalloc(len + 1);
-	if (s2 == NULL)
+	if (!(s2 = (char*)malloc(sizeof(char) * len + 1)))
 		return (NULL);
-	while (j < len)
+	while (i < len)
 	{
 		s2[i] = s[start];
 		i++;
 		start++;
-		j++;
 	}
+	s2[i] = '\0';
 	return (s2);
 }
