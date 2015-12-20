@@ -6,27 +6,21 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 17:51:19 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/11/30 18:47:29 by rle-mino         ###   ########.fr       */
+/*   Updated: 2015/12/19 19:17:14 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strncat(char *s1, const char *s2, int n)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int		i;
-	int		j;
+	char	*ret;
 
-	j = 0;
-	i = ft_strlen(s1);
-	while (n)
-	{
-		s1[i] = s2[j];
-		j++;
-		i++;
-		n--;
-	}
-	i++;
-	s1[i] = '\0';
-	return (s1);
+	ret = s1;
+	while (*s1)
+		s1++;
+	while (n-- && *s2)
+		*s1++ = *s2++;
+	*s1 = '\0';
+	return (ret);
 }

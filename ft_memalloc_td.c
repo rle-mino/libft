@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 19:48:06 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/12/11 20:03:05 by rle-mino         ###   ########.fr       */
+/*   Updated: 2015/12/20 12:34:53 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,16 @@
 char			**ft_memalloc_td(int d1, int d2)
 {
 	char		**tab;
-	int			j;
+	char		*tab2;
+	int			i;
 
-	j = 0;
-	tab = (char **)ft_memalloc(sizeof(char *) * d1);
-	if (!(tab))
-		return (NULL);
-	while (d1 > 0)
+	i = 0;
+	tab = (char**)ft_memalloc(sizeof(char *) * d1);
+	tab2 = (char*)ft_memalloc(sizeof(char) * d2 * d1);
+	while (i < d1)
 	{
-		tab[j] = (char *)ft_memalloc(sizeof(char) * d2);
-		if (tab[j])
-			return (NULL);
-		j++;
-		d1--;
+		tab[i] = &tab2[i * d2];
+		i++;
 	}
 	return (tab);
 }

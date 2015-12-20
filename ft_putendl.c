@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 11:22:59 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/11/30 11:23:12 by rle-mino         ###   ########.fr       */
+/*   Updated: 2015/12/15 11:30:35 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void			ft_putendl(char const *s)
 {
+	if (s == NULL)
+		return ;
 	ft_putstr(s);
 	ft_putchar('\n');
 }

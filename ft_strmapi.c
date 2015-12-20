@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 13:27:12 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/12/14 18:26:51 by rle-mino         ###   ########.fr       */
+/*   Updated: 2015/12/15 11:24:39 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	s2 = ft_strnew(ft_strlen(s));
 	if (!(s2))
-		return NULL;
+		return (NULL);
 	while (s[i])
 	{
 		s2[i] = f(i, s[i]);

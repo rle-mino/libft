@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 15:38:06 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/11/30 11:31:02 by rle-mino         ###   ########.fr       */
+/*   Updated: 2015/12/15 11:30:09 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void		ft_putstr(char const *str)
 {
 	int i;
 
+	if (str == NULL)
+		return ;
 	i = 0;
 	while (str[i])
 	{

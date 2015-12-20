@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 18:07:53 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/12/14 17:54:12 by rle-mino         ###   ########.fr       */
+/*   Updated: 2015/12/19 19:32:20 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 void			*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*tmp;
+	unsigned char		*str1;
+	unsigned char		*str2;
 
-	if (len == 0)
-		return (dst);
-	tmp = (unsigned char *)malloc(sizeof(unsigned char) * len + 1);
-	if (tmp == NULL)
-		return (NULL);
-	ft_memcpy(tmp, src, len);
-	ft_memcpy(dst, tmp, len);
-	free(tmp);
+	str1 = (unsigned char*)dst;
+	str2 = (unsigned char*)src;
+	if (dst > src)
+	{
+		str1 = str1 + len;
+		str2 = str2 + len;
+		while (len--)
+			*--str1 = *--str2;
+	}
+	else
+		ft_memcpy(dst, src, len);
 	return (dst);
 }
