@@ -3,13 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 09:50:20 by rle-mino          #+#    #+#              #
-#    Updated: 2015/12/15 11:08:39 by rle-mino         ###   ########.fr        #
+#    Updated: 2016/02/03 21:09:56 by rle-mino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+#SOURCE
 SOURCE=		ft_memset.c			\
 			ft_bzero.c			\
 			ft_memcpy.c			\
@@ -74,23 +75,35 @@ SOURCE=		ft_memset.c			\
 			ft_lstlen.c			\
 			ft_memalloc_td.c	\
 			ft_free_td.c		\
-			ft_isspace.c
+			ft_isspace.c		\
+			get_next_line.c
 
 DOTO=		$(SOURCE:.c=.o)
 
+#COLOR
+KCYN	=		"\033[0;36m"
+KRESET	=		"\033[0m"
+KRED	=		"\033[0;31m"
+KWHI	=		"\033[1;37m"
+
+#NAME
 NAME=		libft.a
 
+#RULE
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(SOURCE) -Wall -Wextra -Werror
-	ar rc $(NAME) $(DOTO)
-	ranlib $(NAME)
+	@gcc -c $(SOURCE) -I includes -Wall -Wextra -Werror
+	@ar rc $(NAME) $(DOTO)
+	@ranlib $(NAME)
+	@echo $(KWHI)"Compiling" $(KRESET)"libft.a\t["$(KCYN)"SUCCES"$(KRESET)"]"
 
 clean:
-	rm -rf $(DOTO)
+	@rm -rf $(DOTO)
+	@echo $(KRED)"removal" $(KRESET)".o files\t["$(KCYN)"SUCCES"$(KRESET)"]"
 
 fclean:	clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
+	@echo $(KRED)"removal" $(KRESET)"libft.a\t\t["$(KCYN)"SUCCES"$(KRESET)"]"
 
 re: fclean $(NAME)
