@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 13:06:35 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/01/10 15:58:42 by rle-mino         ###   ########.fr       */
+/*   Updated: 2016/02/05 12:49:26 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
 
-char			*fill_line(char *line, char *buf)
+static char			*fill_line(char *line, char *buf)
 {
 	char	*tmp;
 	int		j;
@@ -41,7 +41,7 @@ char			*fill_line(char *line, char *buf)
 	return (line);
 }
 
-void			multi_fd(t_struct **gnl, int fd)
+static void			multi_fd(t_struct **gnl, int fd)
 {
 	t_struct	*tmp;
 
@@ -62,7 +62,7 @@ void			multi_fd(t_struct **gnl, int fd)
 	}
 }
 
-static int		malloker(t_struct **gnl, char **line, int fd)
+static int			malloker(t_struct **gnl, char **line, int fd)
 {
 	*line = ft_memalloc(1);
 	if (!*gnl)
@@ -82,7 +82,7 @@ static int		malloker(t_struct **gnl, char **line, int fd)
 	return (0);
 }
 
-int				get_next_line(int const fd, char **line)
+int					get_next_line(int const fd, char **line)
 {
 	static t_struct		*gnl = NULL;
 	int					rd;
