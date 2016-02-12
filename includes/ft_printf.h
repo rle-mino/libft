@@ -6,7 +6,7 @@
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 13:02:20 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/09 16:49:18 by rle-mino         ###   ########.fr       */
+/*   Updated: 2016/02/13 00:23:11 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct	s_struct
 	int			min;
 }				t_struct;
 
-int				ft_printf(char const *format, ...);
+int				fpf(char const *format, ...);
 int				noflag(va_list ap, char conv);
 int				pf_print_var(t_struct data, char conv, va_list ap);
 void			fill_data_flag(char c, t_struct *data);
