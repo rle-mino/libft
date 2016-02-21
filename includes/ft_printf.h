@@ -6,7 +6,7 @@
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 13:02:20 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/13 00:23:11 by rle-mino         ###   ########.fr       */
+/*   Updated: 2016/02/21 08:16:38 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 # define KRESET "\033[0m"
 # define KRED "\033[0;31m"
 # define KWHI "\033[1;37m"
-
-# define DEBUG ft_putstr(KCYN);ft_putnbr(__LINE__, 1);ft_putstr(" - ");ft_putstr(__func__);ft_putstr(" - ");ft_putstr(__FILE__);ft_putchar('\n');ft_putstr(KRESET);
 
 typedef struct	s_struct
 {
@@ -129,7 +127,7 @@ int				deci_conv_l(t_struct data, long nbr);
 int				deci_conv_ll(t_struct data, long long nbr);
 int				deci_conv_j(t_struct data, uintmax_t nbr);
 int				deci_conv_z(t_struct data, size_t nbr);
-void			ft_putnbr(int nbr, int flag);
+void			ftp_putnbr(int nbr, int flag);
 void			ft_putnbr_h(short n, int flag);
 void			ft_putnbr_hh(char n, int flag);
 void			ft_putnbr_l(long n, int flag);

@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_td.c                                       :+:      :+:    :+:   */
+/*   pf_putoctal_j.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 19:56:59 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/13 11:09:07 by rle-mino         ###   ########.fr       */
+/*   Created: 2016/02/02 14:46:53 by rle-mino          #+#    #+#             */
+/*   Updated: 2016/02/02 15:33:49 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void			ft_free_td(char **str, int d2)
+int		pf_retoctal_j(uintmax_t nbr, int lower)
 {
-	int		j;
+	int					i;
+	uintmax_t			nbr2;
 
-	j = 0;
-	if (str == NULL)
-		return ;
-	while (j < d2)
+	nbr2 = nbr;
+	i = 0;
+	while (nbr2 >= 8)
 	{
-		free(str[j]);
-		j++;
+		nbr2 /= 8;
+		i++;
 	}
-	free(str);
+	if (lower != 2)
+		pf_putoctal_noflag_j(nbr);
+	return (i + 1);
+}
+
+void	pf_putoctal_noflag_j(uintmax_t nbr)
+{
+	if (nbr >= 8)
+	{
+		pf_putoctal_noflag_j(nbr / 8);
+		ft_putchar((nbr % 8) + '0');
+	}
+	else
+		ft_putchar((nbr % 8) + '0');
 }

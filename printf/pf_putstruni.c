@@ -1,55 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_putascii.c                                      :+:      :+:    :+:   */
+/*   pf_putstruni.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/21 11:10:46 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/18 14:28:24 by rle-mino         ###   ########.fr       */
+/*   Created: 2016/02/06 22:19:50 by rle-mino          #+#    #+#             */
+/*   Updated: 2016/02/08 06:03:34 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		pf_putstr(char const *str)
+int			pf_putstruni(wchar_t *str)
 {
-	if (str == NULL)
-		return (write(1, "(null)", 6));
-	write(1, str, ft_strlen(str));
-	return (ft_strlen(str));
-}
-
-int		pf_retdeci_noclong(int n, int flag)
-{
+	int		i;
 	int		k;
-	int		n2;
 
-	n2 = n;
+	i = 0;
 	k = 0;
-	if (n == -2147483648)
+	if (str == NULL)
+		return (pf_putstr("(null)"));
+	while (str[i])
 	{
-		ftp_putnbr(n, flag);
-		return (11);
+		k += pf_putcharuni(str[i]);
+		i++;
 	}
-	if (n2 < 0)
-	{
-		n2 = -n2;
-		k++;
-	}
-	while (n2 > 9)
-	{
-		n2 /= 10;
-		k++;
-	}
-	k++;
-	if (flag != 2)
-		ftp_putnbr(n, flag);
 	return (k);
 }
 
-int		pf_putchar(char c)
+int			ft_strwlen(wchar_t *str)
 {
-	write(1, &c, 1);
-	return (1);
+	int		i;
+	int		k;
+
+	k = 0;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < 128)
+			k += 1;
+		else if (str[i] < 2048)
+			k += 2;
+		else if (str[i] < 65536)
+			k += 3;
+		else
+			k += 4;
+		i++;
+	}
+	return (k);
 }

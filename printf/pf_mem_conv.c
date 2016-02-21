@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_td.c                                       :+:      :+:    :+:   */
+/*   pf_mem_conv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 19:56:59 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/13 11:09:07 by rle-mino         ###   ########.fr       */
+/*   Created: 2016/02/06 22:39:59 by rle-mino          #+#    #+#             */
+/*   Updated: 2016/02/08 02:03:00 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void			ft_free_td(char **str, int d2)
+int		mem_conv(t_struct data, va_list ap)
 {
-	int		j;
-
-	j = 0;
-	if (str == NULL)
-		return ;
-	while (j < d2)
-	{
-		free(str[j]);
-		j++;
-	}
-	free(str);
+	if (data.flag == 0 && data.min == 0 && data.prec == 0)
+		return (pf_retmem_noclong(va_arg(ap, size_t), 1));
+	return (mem_conv_noclong(data, va_arg(ap, size_t)));
 }

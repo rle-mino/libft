@@ -1,55 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_putascii.c                                      :+:      :+:    :+:   */
+/*   pf_putcharuni.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/21 11:10:46 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/18 14:28:24 by rle-mino         ###   ########.fr       */
+/*   Created: 2016/02/06 17:35:44 by rle-mino          #+#    #+#             */
+/*   Updated: 2016/02/08 06:07:26 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		pf_putstr(char const *str)
-{
-	if (str == NULL)
-		return (write(1, "(null)", 6));
-	write(1, str, ft_strlen(str));
-	return (ft_strlen(str));
-}
-
-int		pf_retdeci_noclong(int n, int flag)
+int			pf_putcharuni(wchar_t c)
 {
 	int		k;
-	int		n2;
 
-	n2 = n;
 	k = 0;
-	if (n == -2147483648)
+	if (c < 128)
+		k += pf_putchar(c);
+	else if (c < 2048)
 	{
-		ftp_putnbr(n, flag);
-		return (11);
+		k += pf_putchar(192 | (c >> 6));
+		k += pf_putchar(128 | (c & 63));
 	}
-	if (n2 < 0)
+	else if (c < 65536)
 	{
-		n2 = -n2;
-		k++;
+		k += pf_putchar(224 | (c >> 12));
+		k += pf_putchar(128 | ((c >> 6) & 63));
+		k += pf_putchar(128 | (c & 63));
 	}
-	while (n2 > 9)
+	else if (c < 1114112)
 	{
-		n2 /= 10;
-		k++;
+		k += pf_putchar(240 | (c >> 18));
+		k += pf_putchar(128 | ((c >> 12) & 63));
+		k += pf_putchar(128 | ((c >> 6) & 63));
+		k += pf_putchar(128 | (c & 63));
 	}
-	k++;
-	if (flag != 2)
-		ftp_putnbr(n, flag);
 	return (k);
-}
-
-int		pf_putchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
 }

@@ -1,55 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_putascii.c                                      :+:      :+:    :+:   */
+/*   char_conv_l.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/21 11:10:46 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/18 14:28:24 by rle-mino         ###   ########.fr       */
+/*   Created: 2016/02/06 23:00:39 by rle-mino          #+#    #+#             */
+/*   Updated: 2016/02/06 23:02:15 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		pf_putstr(char const *str)
-{
-	if (str == NULL)
-		return (write(1, "(null)", 6));
-	write(1, str, ft_strlen(str));
-	return (ft_strlen(str));
-}
-
-int		pf_retdeci_noclong(int n, int flag)
+int		char_conv_l(t_struct data, wchar_t c)
 {
 	int		k;
-	int		n2;
 
-	n2 = n;
 	k = 0;
-	if (n == -2147483648)
+	if (data.flag & 4)
 	{
-		ftp_putnbr(n, flag);
-		return (11);
+		k += pf_putcharuni(c);
+		while (k < data.min)
+			k += pf_putchar(' ');
 	}
-	if (n2 < 0)
+	else
 	{
-		n2 = -n2;
-		k++;
+		while (k < data.min - 1)
+			k += pf_putchar(' ');
+		k += pf_putcharuni(c);
 	}
-	while (n2 > 9)
-	{
-		n2 /= 10;
-		k++;
-	}
-	k++;
-	if (flag != 2)
-		ftp_putnbr(n, flag);
 	return (k);
-}
-
-int		pf_putchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
 }

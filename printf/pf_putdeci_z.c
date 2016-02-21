@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_putascii.c                                      :+:      :+:    :+:   */
+/*   pf_putdeci_z.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/21 11:10:46 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/18 14:28:24 by rle-mino         ###   ########.fr       */
+/*   Created: 2016/02/04 18:37:23 by rle-mino          #+#    #+#             */
+/*   Updated: 2016/02/04 20:25:20 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		pf_putstr(char const *str)
+int			pf_retdeci_z(size_t n, int flag)
 {
-	if (str == NULL)
-		return (write(1, "(null)", 6));
-	write(1, str, ft_strlen(str));
-	return (ft_strlen(str));
-}
-
-int		pf_retdeci_noclong(int n, int flag)
-{
-	int		k;
-	int		n2;
+	int			k;
+	size_t		n2;
 
 	n2 = n;
 	k = 0;
-	if (n == -2147483648)
-	{
-		ftp_putnbr(n, flag);
-		return (11);
-	}
-	if (n2 < 0)
-	{
-		n2 = -n2;
-		k++;
-	}
 	while (n2 > 9)
 	{
 		n2 /= 10;
@@ -44,12 +26,17 @@ int		pf_retdeci_noclong(int n, int flag)
 	}
 	k++;
 	if (flag != 2)
-		ftp_putnbr(n, flag);
+		ft_putnbr_z(n, flag);
 	return (k);
 }
 
-int		pf_putchar(char c)
+void		ft_putnbr_z(size_t n, int flag)
 {
-	write(1, &c, 1);
-	return (1);
+	if (n > 9)
+	{
+		ft_putnbr_z(n / 10, flag);
+		ft_putchar(n % 10 + '0');
+	}
+	else
+		ft_putchar(n + '0');
 }

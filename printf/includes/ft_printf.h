@@ -6,7 +6,7 @@
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 13:02:20 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/09 16:49:18 by rle-mino         ###   ########.fr       */
+/*   Updated: 2016/02/21 08:17:07 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 # define KRESET "\033[0m"
 # define KRED "\033[0;31m"
 # define KWHI "\033[1;37m"
-
-# define DEBUG ft_putstr(KCYN);ft_putnbr(__LINE__, 1);ft_putstr(" - ");ft_putstr(__func__);ft_putstr(" - ");ft_putstr(__FILE__);ft_putchar('\n');ft_putstr(KRESET);
 
 typedef struct	s_struct
 {

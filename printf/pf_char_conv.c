@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_td.c                                       :+:      :+:    :+:   */
+/*   pf_char_conv.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 19:56:59 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/13 11:09:07 by rle-mino         ###   ########.fr       */
+/*   Created: 2016/02/01 18:04:43 by rle-mino          #+#    #+#             */
+/*   Updated: 2016/02/07 22:19:02 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void			ft_free_td(char **str, int d2)
+int			char_conv(t_struct data, va_list ap, int lower)
 {
-	int		j;
-
-	j = 0;
-	if (str == NULL)
-		return ;
-	while (j < d2)
-	{
-		free(str[j]);
-		j++;
-	}
-	free(str);
+	if (data.clong == 0 && lower == 1)
+		return (char_conv_noclong(data, (char)va_arg(ap, int)));
+	return (char_conv_l(data, va_arg(ap, wchar_t)));
 }

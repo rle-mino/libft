@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_putascii.c                                      :+:      :+:    :+:   */
+/*   pf_putdeci_l.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/21 11:10:46 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/18 14:28:24 by rle-mino         ###   ########.fr       */
+/*   Created: 2016/02/04 18:37:03 by rle-mino          #+#    #+#             */
+/*   Updated: 2016/02/06 22:56:51 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		pf_putstr(char const *str)
-{
-	if (str == NULL)
-		return (write(1, "(null)", 6));
-	write(1, str, ft_strlen(str));
-	return (ft_strlen(str));
-}
-
-int		pf_retdeci_noclong(int n, int flag)
+int			pf_retdeci_l(long n, int flag)
 {
 	int		k;
-	int		n2;
+	long	n2;
 
 	n2 = n;
-	k = 0;
-	if (n == -2147483648)
+	if (n == LONG_MIN)
 	{
-		ftp_putnbr(n, flag);
-		return (11);
+		if (flag != 2)
+			ft_putnbr_l(n, flag);
+		return (20);
 	}
+	k = 0;
 	if (n2 < 0)
 	{
 		n2 = -n2;
@@ -44,12 +37,28 @@ int		pf_retdeci_noclong(int n, int flag)
 	}
 	k++;
 	if (flag != 2)
-		ftp_putnbr(n, flag);
+		ft_putnbr_l(n, flag);
 	return (k);
 }
 
-int		pf_putchar(char c)
+void		ft_putnbr_l(long n, int flag)
 {
-	write(1, &c, 1);
-	return (1);
+	if (n == LONG_MIN)
+	{
+		ft_putstr("-9223372036854775808");
+		return ;
+	}
+	if (n < 0)
+	{
+		if (flag != 2)
+			ft_putchar('-');
+		n = -n;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_l(n / 10, flag);
+		ft_putchar(n % 10 + '0');
+	}
+	else
+		ft_putchar(n + '0');
 }
