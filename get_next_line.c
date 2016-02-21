@@ -6,7 +6,7 @@
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 13:06:35 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/05 12:49:26 by rle-mino         ###   ########.fr       */
+/*   Updated: 2016/02/21 22:48:27 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,7 @@ int					get_next_line(int const fd, char **line)
 			*line = fill_line(*line, gnl->b2 + 1);
 			if ((gnl->b2 = ft_strchr(gnl->b2 + 1, '\n')) != NULL)
 				return (1);
-			if (!(rd = read(fd, gnl->b1, BUFF_SIZE)))
-				return (0);
+			rd = read(fd, gnl->b1, BUFF_SIZE);
 		}
 		if (rd < 0)
 			return (-1);

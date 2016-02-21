@@ -6,7 +6,7 @@
 #    By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 09:50:20 by rle-mino          #+#    #+#              #
-#    Updated: 2016/02/21 04:43:16 by rle-mino         ###   ########.fr        #
+#    Updated: 2016/02/21 22:50:36 by rle-mino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ SRC	=		ft_memset.c			\
 			ft_memalloc_td.c	\
 			ft_free_td.c		\
 			ft_isspace.c		\
-			get_next_line.c
+			get_next_line.c		\
 
 SRC_PF =	printf/ft_printf.c					\
 			printf/ftp_putnbr.c					\
