@@ -6,7 +6,7 @@
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 13:02:20 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/21 08:17:07 by rle-mino         ###   ########.fr       */
+/*   Updated: 2016/02/26 10:26:09 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void			ft_putstr(char const *str);
 void			*ft_memalloc(size_t size);
 void			ft_bzero(void *s, size_t n);
 int				ft_atoi(const char *str);
+int				pf_retbin(size_t nbr);
+void			ft_putnbr_bin(size_t nbr);
 char			*ft_strncpy(char *dst, const char *src, size_t n);
 int				hexa_conv(t_struct data, va_list ap, int lower);
 int				pf_rethexa_noclong(unsigned int nbr, int lower);

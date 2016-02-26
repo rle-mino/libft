@@ -6,7 +6,7 @@
 /*   By: rle-mino <rle-mino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 13:02:20 by rle-mino          #+#    #+#             */
-/*   Updated: 2016/02/21 08:16:38 by rle-mino         ###   ########.fr       */
+/*   Updated: 2016/02/26 10:27:40 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct	s_struct
 	int			min;
 }				t_struct;
 
-int				fpf(char const *format, ...);
+int				ft_printf(char const *format, ...);
 int				noflag(va_list ap, char conv);
 int				pf_print_var(t_struct data, char conv, va_list ap);
 void			fill_data_flag(char c, t_struct *data);
@@ -56,8 +56,11 @@ size_t			ft_strlen(char const *str);
 void			ft_putchar(char c);
 void			ft_putstr(char const *str);
 void			*ft_memalloc(size_t size);
+void			ftp_putnbr(int n, int flag);
 void			ft_bzero(void *s, size_t n);
 int				ft_atoi(const char *str);
+int				pf_retbin(size_t nbr);
+void			ft_putnbr_bin(size_t nbr);
 char			*ft_strncpy(char *dst, const char *src, size_t n);
 int				hexa_conv(t_struct data, va_list ap, int lower);
 int				pf_rethexa_noclong(unsigned int nbr, int lower);
@@ -127,7 +130,7 @@ int				deci_conv_l(t_struct data, long nbr);
 int				deci_conv_ll(t_struct data, long long nbr);
 int				deci_conv_j(t_struct data, uintmax_t nbr);
 int				deci_conv_z(t_struct data, size_t nbr);
-void			ftp_putnbr(int nbr, int flag);
+void			ft_putnbr(int nbr, int flag);
 void			ft_putnbr_h(short n, int flag);
 void			ft_putnbr_hh(char n, int flag);
 void			ft_putnbr_l(long n, int flag);
