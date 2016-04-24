@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 11:24:04 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/12/15 11:31:07 by rle-mino         ###   ########.fr       */
+/*   Updated: 2016/04/24 17:57:00 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,5 @@ void			ft_putstr_fd(const char *s, int fd)
 
 	if (s == NULL)
 		return ;
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	write(fd, s, ft_strlen(s));
 }

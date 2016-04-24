@@ -6,7 +6,7 @@
 /*   By: rle-mino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 12:39:17 by rle-mino          #+#    #+#             */
-/*   Updated: 2015/11/30 11:40:12 by rle-mino         ###   ########.fr       */
+/*   Updated: 2016/04/24 17:57:38 by rle-mino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,9 @@ char		*ft_strcat(char *s1, const char *s2)
 	int		j;
 
 	i = ft_strlen(s1);
-	j = 0;
-	while (s2[j])
-	{
-		s1[i] = s2[j];
-		j++;
-		i++;
-	}
+	j = -1;
+	while (s2[++j])
+		s1[i++] = s2[j];
 	s1[i] = '\0';
 	return (s1);
 }
