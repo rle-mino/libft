@@ -58,7 +58,6 @@ static char		*nblet(char const *s, char c, const int j)
 		k++;
 		i++;
 	}
-	x = ft_strnew(k);
 	return (x = ft_strsub(s, o, k));
 }
 
