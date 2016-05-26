@@ -37,7 +37,6 @@ static char		*nblet(char const *s, char c, const int j)
 {
 	int			i;
 	int			k;
-	char		*x;
 	int			m;
 	int			o;
 
@@ -58,7 +57,7 @@ static char		*nblet(char const *s, char c, const int j)
 		k++;
 		i++;
 	}
-	return (x = ft_strsub(s, o, k));
+	return (ft_strsub(s, o, k));
 }
 
 char			**ft_strsplit(char const *s, char c)
